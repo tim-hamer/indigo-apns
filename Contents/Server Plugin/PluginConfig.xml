@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<PluginConfig>
+  <Field id="certificateField" type="textfield" defaultValue="~/apns_cert.pem">
+    <Label>Certificate File:</Label>
+  </Field>
+  <Field id="privateKeyField" type="textfield" defaultValue="~/private_key.pem">
+    <Label>Private Key File:</Label>
+  </Field>
+  <Field type="checkbox" id="useSandbox" defaultValue="true">
+    <Label>Use Sandbox:</Label>
+    <Description>Use the sandbox APNs server (for development)</Description>
+  </Field>
+</PluginConfig>

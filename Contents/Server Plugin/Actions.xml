@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Actions>
+  <Action id="sendnotification" deviceFilter="self">
+    <Name>Send Notification</Name>
+    <CallbackMethod>sendNotification</CallbackMethod>
+    <ConfigUI>
+      <Field type="textfield" id="alert">
+        <Label>Alert:</Label>
+      </Field>
+      <Field type="textfield" id="badge" defaultValue="0">
+        <Label>Badge:</Label>
+      </Field>
+      <Field type="menu" id="sound">
+        <Label>Sound:</Label>
+        <List>
+          <Option value="default">Default</Option>
+        </List>
+      </Field>
+    </ConfigUI>
+  </Action>
+</Actions>
