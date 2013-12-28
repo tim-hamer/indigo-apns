@@ -27,20 +27,22 @@ class Plugin(indigo.PluginBase):
         token = device.pluginProps['token']
         return token
 
-    def methodFromString(self, device, prefix, methodName):
-        if methodName is None or prefix is None:
-            self.debugLog(u"ERROR: both prefix and method name must be specified.")
-            return
-        fullName = prefix+"."+methodName
-        try:
-            return getattr(self.getServer(device), fullName)
-        except AttributeError:
-            self.debugLog(u"ERROR: method not found for '"+fullName+"'")
-            return None
-
 ############## --- Action Methods --- ##############
 
     def sendNotification(self, action, device):
+        useCondition = action.props['useCondition']
+        if useCondition == True:
+            conditionVar = action.props['conditionVariable']
+            conditionValue = action.props['conditionValue']
+            actualValue = indigo.variables[int(conditionVar)].value
+            if actualValue == conditionValue:
+                self.send(device, action)
+            else:
+                indigo.server.log("Don't send notification: " + actualValue + " : " + conditionValue)
+        else:
+                self.send(device, action)
+
+    def send(self, device, action):
         token = self.getToken(device)
         cert = self.pluginPrefs["certificateField"]
         key = self.pluginPrefs["privateKeyField"]

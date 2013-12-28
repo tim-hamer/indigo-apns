@@ -16,6 +16,16 @@
           <Option value="default">Default</Option>
         </List>
       </Field>
+      <Field type="checkbox" id="useCondition" defaultValue="false">
+        <Label>Use Condition:</Label>
+        <Description>Only send notification when condition is met</Description>
+      </Field>
+      <Field type="textfield" id="conditionVariable" enabledBindingId="useCondition">
+        <Label>Variable ID:</Label>
+      </Field>
+      <Field type="textfield" id="conditionValue" defaultValue="true" enabledBindingId="useCondition">
+        <Label>Value:</Label>
+      </Field>
     </ConfigUI>
   </Action>
 </Actions>
