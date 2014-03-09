@@ -14,16 +14,26 @@
         <Label>Sound:</Label>
         <List>
           <Option value="default">Default</Option>
+          <Option value="washer_done.aiff">Washer Done</Option>
+          <Option value="dryer_done.aiff">Dryer Done</Option>
+          <Option value="front_door_opened.aiff">Front Door Opened</Option>
+          <Option value="back_door_opened.aiff">Back Door Opened</Option>
         </List>
       </Field>
       <Field type="checkbox" id="useCondition" defaultValue="false">
-        <Label>Use Condition:</Label>
-        <Description>Only send notification when condition is met</Description>
+        <Label>Use Conditions:</Label>
+        <Description>Only send notification when conditions are met</Description>
       </Field>
-      <Field type="textfield" id="conditionVariable" enabledBindingId="useCondition">
+      <Field type="textfield" id="conditionVariable1" enabledBindingId="useCondition">
         <Label>Variable ID:</Label>
       </Field>
-      <Field type="textfield" id="conditionValue" defaultValue="true" enabledBindingId="useCondition">
+      <Field type="textfield" id="conditionValue1" defaultValue="true" enabledBindingId="useCondition">
+        <Label>Value:</Label>
+      </Field>
+      <Field type="textfield" id="conditionVariable2" enabledBindingId="useCondition">
+        <Label>Variable ID:</Label>
+      </Field>
+      <Field type="textfield" id="conditionValue2" defaultValue="true" enabledBindingId="useCondition">
         <Label>Value:</Label>
       </Field>
     </ConfigUI>

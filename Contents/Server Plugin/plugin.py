@@ -32,10 +32,19 @@ class Plugin(indigo.PluginBase):
     def sendNotification(self, action, device):
         useCondition = action.props['useCondition']
         if useCondition == True:
-            conditionVar = action.props['conditionVariable']
-            conditionValue = action.props['conditionValue']
-            actualValue = indigo.variables[int(conditionVar)].value
-            if actualValue == conditionValue:
+            conditionVar1 = action.props['conditionVariable1']
+            conditionValue1 = action.props['conditionValue1']
+            actualValue1 = indigo.variables[int(conditionVar1)].value
+
+            conditionVar2 = action.props['conditionVariable2']
+
+            secondCondition = True
+            if conditionVar2:
+                conditionValue2 = action.props['conditionValue2']
+                actualValue2 = indigo.variables[int(conditionVar2)].value
+                secondCondition = actualValue2 == conditionValue2
+
+            if actualValue1 == conditionValue1 and secondCondition:
                 self.send(device, action)
             else:
                 indigo.server.log("Don't send notification: " + actualValue + " : " + conditionValue)
